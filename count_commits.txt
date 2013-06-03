@@ -1,0 +1,142 @@
+wrowe - 4825 -  William A. Rowe, Jr. - Gurnee, IL, US
+jim - 3241 - Jim Jagielski - Forest Hill, Maryland, USA
+nd - 3072 - 
+trawick - 3008 - Jeff Trawick - Raleigh, NC, USA
+rbowen - 1780 - Rich Bowen - Lexington, KY
+sf - 1391 - Stefan Fritsch - Munich, Germany
+rpluem - 1302 - Rüdiger Plüm - Ratingen, Germany
+dgaudet - 1282 - Dean Gaudet - San Francisco, CA, USA
+minfrin - 1281 - Graham Leggett - London, England
+rbb - 1239 - Ryan Bloom - Oakland, CA
+jerenkrantz - 1219 - Justin Erenkrantz - Irvine, California
+jorton - 1217 - 
+joes - 1215
+humbedooh - 1197
+slive - 1080 - Joshua Slive - Montreal, Quebec, Canada
+coar - 1071 - Ken Coar - Research Triangle Park, North Carolina, USA
+dougm - 1025 - Doug MacEachern - San Francisco, CA, USA
+stoddard - 1015 - Bill Stoddard - Research Triangle Park, NC, USA
+rse - 936 - Ralf S. Engelschall - Munich, Germany
+fielding - 904 - Roy T. Fielding - Irvine, California
+covener - 894 - Eric Covener - Research Triangle Park, NC, USA
+bnicholes - 894 - Brad Nicholes - Provo, Ut. USA
+martin - 853
+pquerna - 776 - Paul Querna - San Francisco, CA, USA
+niq - 719 - Nick Kew - England
+stas - 701
+rjung - 691 - Rainer Jung - Bonn, Germany
+brian - 689 - 
+fuankg - 632
+ben - 498
+jwoolley - 496 - Cliff Woolley - Charlottesville, VA
+undefined - 451
+lgentis - 437
+yoshiki - 435 - Yoshiki Hayashi - Tokyo, Japan
+brianp - 406 - Brian Pane - Seattle, WA, USA
+marc - 398 - Marc Slemko - Seattle, WA, USA
+kess - 389 - Astrid Malo - Saarbrücken, Germany
+gstein - 376 - Greg Stein - Palo Alto, CA, USA
+pcs - 369 - Paul Sutton - Seattle, USA
+erikabele - 342 - Erik Abele - Aalen, Germany
+gregames - 330
+nilgun - 320
+takashi - 319 - Takashi Sato - Tokyo, Japan
+randy - 316 - Randy Terbush - Alta, WY, USA
+grisha - 309
+colm - 300 - Colm MacCárthaigh - Dublin, Ireland
+aaron - 297 - Aaron Bannert - San Francisco, CA, USA
+mjc - 292
+bjh - 238 - Brian Havard - Melbourne, Australia
+striker - 238 - Sander Striker - Utrecht, The Netherlands
+mturk - 235
+randyk - 229
+chuck - 229 - Chuck Murcko - Sedona, AZ, USA
+lars - 229 - Lars Eilebrecht - Munich, Germany
+akosut - 229 - Alexei Kosut - Stanford, California
+noodl - 222
+jgallacher - 218
+manoj - 210 - Manoj Kasichainula - San Francisco, CA, USA
+igalic - 206
+ianh - 205 - Ian Holsman - San Francisco, USA
+pgollucci - 192
+gryzor - 189
+nlehuen - 179
+geoff - 176
+dreid - 168
+poirier - 168 - Dan Poirier - Research Triangle Park, NC, USA
+gtrubetskoy - 167
+grahamd - 167
+jfclere - 166
+rederpj - 160 - Paul J. Reder - Research Triangle Park, NC, USA
+fanf - 158 - Tony Finch - London
+brianm - 146 - Brian McCallister - Menlo Park, CA
+chrisd - 133 - Chris Darroch - British Columbia, Canada
+sctemme - 121
+kawai - 120
+jailletc36 - 118
+orlikowski - 115 - Victor J. Orlikowski - Durham, NC USA
+dirkx - 115
+soc-rian - 112
+wsanchez - 104
+pqf - 101
+kbrand - 85
+gsmith - 69
+maxime - 68
+jsl - 66
+issac - 63
+pctony - 62
+jsachs - 61
+sascha - 57
+ake - 57
+rasmus - 55
+rooneg - 54
+pepper - 52
+druggeri - 51
+noirin - 50
+sameer - 48
+thommay - 43
+clar - 42
+jimw - 40
+jacekp - 34
+paul - 31
+madhum - 29
+tdonovan - 26
+ronald - 25
+dpejesh - 25
+sbekman - 25
+gozer - 24
+mccreedy - 24
+soldis - 22
+gbenson - 21
+danielsh - 20
+mads - 20
+patrikj - 19
+bojan - 18
+bhyde - 18
+blanco - 15
+ask - 13
+theory - 12
+lookit - 10
+drh - 10
+maczniak - 10
+cholet - 10
+ridruejo - 7
+davidw - 6
+fabien - 6
+keith - 5
+cvs - 5
+berkes - 5
+bayard - 4
+davi - 4
+nikke - 3
+sterling - 3
+asteinmetz - 3
+rian - 3
+parin - 2
+hartill - 2
+kevlo - 2
+sbidoul - 1
+matts - 1
+ivn - 1
+max - 1
+cliff - 1
