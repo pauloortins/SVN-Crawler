@@ -1,0 +1,32 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map-canvas, #map_canvas {
+    height: 100%;
+}
+
+html, body {
+    height: auto;
+}
+
+#map-canvas, #map_canvas {
+    height: 650px;
+}
+
+#panel {
+    background-color: #FFFFFF;
+    border: 1px solid #999999;
+    left: 50%;
+    margin-left: -180px;
+    padding: 5px;
+    position: absolute;
+    top: 5px;
+    z-index: 5;
+}
+
+#commit-messages {
+    text-align: center;
+}
