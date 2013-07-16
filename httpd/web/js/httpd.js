@@ -1,16 +1,23 @@
 function Httpd() {
-   this.btnStart;
-   this.isShowingCommits;
 }
 
 Httpd.prototype.init = function() {
   this.createReferences();
   this.bindElements();
+
+  this.flowsyManager.goTo('initial');
 }
 
 Httpd.prototype.createReferences = function () {
-  this.commitMap = new HeatMap('commit-map', 'commit-progressbar', 'commit-progress-label', 'commit-messages');  
-  this.emailMap = new HeatMap('email-map', 'email-progressbar', 'email-progress-label', 'email-messages');  
+  var self = this;
+
+  this.commitMap = new HeatMap('commit-map', 'commit-progressbar', 'commit-progress-label', 'commit-messages', CommitRetriever);  
+  this.emailMap = new HeatMap('email-map', 'email-progressbar', 'email-progress-label', 'email-messages', EmailRetriever);  
+  this.flowsyManager = new Flowsy({
+      'initial': {action: self.initial.bind(self), 'play': 'playing'},
+      'playing': {action: self.playing.bind(self), 'stop': 'stopped'},
+      'stopped': {action: self.stopped.bind(self), 'play': 'playing', 'clear': 'initial'}
+  });
 }
 
 Httpd.prototype.bindElements = function() {
@@ -41,17 +48,44 @@ Httpd.prototype.bindElements = function() {
 }
 
 Httpd.prototype.start = function() {
-  this.commitMap.start();
-  this.emailMap.start();
+  this.flowsyManager.goTo('playing');
 }
 
 Httpd.prototype.stop = function() {
-  this.commitMap.stop();
-  this.emailMap.stop();
+  this.flowsyManager.goTo('stopped');
 }
 
 Httpd.prototype.clear = function() {
+  this.flowsyManager.goTo('initial');
+}
+
+Httpd.prototype.initial = function () {
   this.commitMap.clear();
   this.emailMap.clear();
+  this.btnStart.removeAttr('disabled');
+  this.btnStop.prop('disabled', true);
+  this.btnClear.prop('disabled', true);
+  $(this.txtStartDate).datepicker('enable');
+  $(this.txtEndDate).datepicker('enable');
+}
+
+Httpd.prototype.playing = function () {
+  this.commitMap.start(this.txtStartDate.val(), this.txtEndDate.val());
+  this.emailMap.start(this.txtStartDate.val(), this.txtEndDate.val());
+  this.btnStart.prop('disabled', true);
+  this.btnStop.removeAttr('disabled');
+  this.btnClear.prop('disabled', true);
+  $(this.txtStartDate).datepicker('disable');
+  $(this.txtEndDate).datepicker('disable');
+}
+
+Httpd.prototype.stopped = function () {
+  this.commitMap.stop();
+  this.emailMap.stop();
+  this.btnStart.removeAttr('disabled');
+  this.btnStop.prop('disabled', true);
+  this.btnClear.removeAttr('disabled');
+  $(this.txtStartDate).datepicker('disable');
+  $(this.txtEndDate).datepicker('disable');
 }
 

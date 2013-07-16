@@ -2,14 +2,14 @@ function InfoRetriever(startDate, endDate, source){
    
    this.count = 0;
 
-   if (startDate != undefined) {
-   	this.startDate = this.fromStringToDate(startDate, 'dd/mm/yyyy');
+   if (startDate != undefined && startDate != '') {
+   	this.startDate = this.fromStringToDate(startDate, 'mm/dd/yyyy');
    } else {
    	this.startDate = this.fromStringToDate('1996-01-01', 'yyyy-mm-dd');	
    }
    
-   if (endDate != undefined) {
-   	this.endDate = this.fromStringToDate(endDate, 'dd/mm/yyyy');
+   if (endDate != undefined  && endDate != '') {
+   	this.endDate = this.fromStringToDate(endDate, 'mm/dd/yyyy');
    } else {
    	this.endDate = this.fromStringToDate('2013-06-10', 'yyyy-mm-dd');	
    }   
@@ -64,17 +64,21 @@ InfoRetriever.prototype.filterData = function(startDate, endDate) {
 };
 
 InfoRetriever.prototype.fromStringToDate = function(string,format) {
-	var array = string.split('-');
-
-	if (format == 'dd/mm/yyyy') {
-		return new Date(array[2],array[1]-1, array[0]);
+	if (format == 'mm/dd/yyyy') {
+      var array = string.split('/');
+		return new Date(array[2],array[0]-1, array[1]);
 	} else if (format == 'yyyy-mm-dd') {
+      var array = string.split('-');
 		return new Date(array[0], array[1]-1, array[2]);
 	}
 };
 
-InfoRetriever.prototype.getCompleteProgress = function() {
-	var progress = this.count * 100 / this.length;
+InfoRetriever.prototype.getCompleteProgress = function() {   
+	if (this.length == 0) {
+      return 100;
+   }
+
+   var progress = this.count * 100 / this.length;
 	var rounded_progress = Math.round(progress * 100) / 100;
 
 	return rounded_progress;

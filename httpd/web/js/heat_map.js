@@ -1,4 +1,4 @@
-function HeatMap(mapId, progressBarId, progressLabelId, messagesId) {
+function HeatMap(mapId, progressBarId, progressLabelId, messagesId, source) {
 	var self = this;
 
 	var mapOptions = {
@@ -7,34 +7,35 @@ function HeatMap(mapId, progressBarId, progressLabelId, messagesId) {
 	    mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 
-  	self.map = new google.maps.Map(document.getElementById(mapId), mapOptions);
+  self.map = new google.maps.Map(document.getElementById(mapId), mapOptions);
 
-  	self.pointArray = new google.maps.MVCArray([]);
+  self.pointArray = new google.maps.MVCArray([]);
 
 	self.heatmap = new google.maps.visualization.HeatmapLayer({
 		data: self.pointArray
 	});
 
-  	self.heatmap.setMap(self.map);
+  self.retriever = new InfoRetriever('', '', new source().get());
 
-  	self.retriever = new InfoRetriever(undefined, undefined, new CommitRetriever().get());
-  	self.commitMessages = document.getElementById(messagesId);  
+  self.heatmap.setMap(self.map);
+  self.commitMessages = document.getElementById(messagesId);  
+  self.progressLabel = $("#" + progressLabelId);
 
-  	self.progressLabel = $("#" + progressLabelId);
-  	self.progressBar = $("#"+ progressBarId).progressbar({
-      value: 0,
-      change: function() {
-        self.progressLabel.text( self.progressBar.progressbar( "value" ) + "%" );
-      },
-      complete: function() {
-        self.progressLabel.text( "Complete!" );
-      }
-    });
+	self.progressBar = $("#"+ progressBarId).progressbar({
+    value: 0,
+    change: function() {
+      self.progressLabel.text( self.progressBar.progressbar( "value" ) + "%" );
+    },
+    complete: function() {
+      self.progressLabel.text( "Complete!" );
+    }
+  });
 }
 
-HeatMap.prototype.start = function() {
+HeatMap.prototype.start = function(startDate, endDate) {
+  this.retriever = new InfoRetriever(startDate, endDate, new CommitRetriever().get());
 	this.isShowingCommits = true;
-  	this.addPoint();
+  this.addPoint();
 };
 
 HeatMap.prototype.addPoint = function() {
@@ -55,12 +56,16 @@ HeatMap.prototype.addPoint = function() {
 	      }, 1);  
 	    }
 
-		if (this.isShowingCommits) {
-		    setTimeout(function() {
-		      self.addPoint.call(self)
-		    }, 10);    
-		}
-  }	
+  		if (this.isShowingCommits) {
+  		    setTimeout(function() {
+  		      self.addPoint.call(self)
+  		    }, 10);    
+  		}
+    } else {
+      setTimeout(function() {
+        self.progressBar.progressbar( "value", self.retriever.getCompleteProgress());
+      }, 0);
+    } 	
 };
 
 HeatMap.prototype.stop = function() {
@@ -77,8 +82,8 @@ HeatMap.prototype.clear = function() {
 
     self.stop.call(self);
 
-    setTimeout(function() {
-        self.retriever = new InfoRetriever(undefined, undefined, new CommitRetriever().get());
+    setTimeout(function() {      
+        self.retriever = new InfoRetriever('', '', new CommitRetriever().get());  
         self.pointArray.clear();
         self.commitMessages.innerHTML = '';
         self.progressBar.progressbar( "value", self.retriever.getCompleteProgress());
