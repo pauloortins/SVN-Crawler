@@ -35,16 +35,8 @@ Httpd.prototype.bindElements = function() {
     self.clear.call(self);
   });
 
-  this.txtStartDate = $("#txtStartDate").datepicker();
-  this.txtEndDate = $("#txtEndDate").datepicker();
-
-  this.btnEraseStartDate = $("#btnEraseStartDate").click(function () {    
-    self.txtStartDate.val('');    
-  });
-
-  this.btnEraseStartDate = $("#btnEraseEndDate").click(function () {    
-    self.txtEndDate.val('');
-  });
+  this.cmbStartDate = $("#cmbStartDate");
+  this.cmbEndDate = $("#cmbEndDate");
 }
 
 Httpd.prototype.start = function() {
@@ -70,8 +62,8 @@ Httpd.prototype.initial = function () {
 }
 
 Httpd.prototype.playing = function () {
-  this.commitMap.start(this.txtStartDate.val(), this.txtEndDate.val());
-  this.emailMap.start(this.txtStartDate.val(), this.txtEndDate.val());
+  this.commitMap.start('01/01/' + this.cmbStartDate.val(), '12/31/' + this.cmbEndDate.val());
+  this.emailMap.start('01/01/' + this.cmbStartDate.val(), '12/31/' + this.cmbEndDate.val());
   this.btnStart.prop('disabled', true);
   this.btnStop.removeAttr('disabled');
   this.btnClear.prop('disabled', true);

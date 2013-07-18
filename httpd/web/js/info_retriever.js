@@ -56,7 +56,7 @@ InfoRetriever.prototype.filterData = function(startDate, endDate) {
 	var isBetweenInterval = function (item, index) {
 		 var objDate = self.fromStringToDate(item.date, 'yyyy-mm-dd');
 
-		 return objDate > startDate && objDate <= endDate;
+		 return objDate >= startDate && objDate < endDate;
 	};
 
 	var data = $.grep(this.source, isBetweenInterval);
