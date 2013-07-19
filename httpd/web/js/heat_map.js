@@ -12,9 +12,13 @@ function HeatMap(mapId, progressBarId, progressLabelId, messagesId, source) {
   self.pointArray = new google.maps.MVCArray([]);
 
 	self.heatmap = new google.maps.visualization.HeatmapLayer({
-		data: self.pointArray
+		data: self.pointArray,
+    dissipation: true,
+    maxIntensity: 100
+
 	});
 
+  self.source = source;
   self.retriever = new InfoRetriever('', '', new source().get());
 
   self.heatmap.setMap(self.map);
@@ -33,7 +37,7 @@ function HeatMap(mapId, progressBarId, progressLabelId, messagesId, source) {
 }
 
 HeatMap.prototype.start = function(startDate, endDate) {
-  this.retriever = new InfoRetriever(startDate, endDate, new CommitRetriever().get());
+  this.retriever = new InfoRetriever(startDate, endDate, new this.source().get());
 	this.isShowingCommits = true;
   this.addPoint();
 };
@@ -48,12 +52,15 @@ HeatMap.prototype.addPoint = function() {
 
 	      var commit = commits[i];
 
-	      self.pointArray.push(new google.maps.LatLng(commit.lat,commit.lng), commit.value);     
+	      self.pointArray.push({
+            location: new google.maps.LatLng(commit.lat,commit.lng), 
+            weight: commit.value
+          });     
 	      
 	      setTimeout(function() {
 	        self.updateCommitMessage.call(self, commit);
 	        self.progressBar.progressbar( "value", self.retriever.getCompleteProgress());
-	      }, 1);  
+	      }, 10);  
 	    }
 
   		if (this.isShowingCommits) {
@@ -64,7 +71,7 @@ HeatMap.prototype.addPoint = function() {
     } else {
       setTimeout(function() {
         self.progressBar.progressbar( "value", self.retriever.getCompleteProgress());
-      }, 0);
+      }, 10);
     } 	
 };
 
@@ -83,7 +90,7 @@ HeatMap.prototype.clear = function() {
     self.stop.call(self);
 
     setTimeout(function() {      
-        self.retriever = new InfoRetriever('', '', new CommitRetriever().get());  
+        self.retriever = new InfoRetriever('', '', new self.source().get());  
         self.pointArray.clear();
         self.commitMessages.innerHTML = '';
         self.progressBar.progressbar( "value", self.retriever.getCompleteProgress());

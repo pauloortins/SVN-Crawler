@@ -14,20 +14,24 @@ function InfoRetriever(startDate, endDate, source){
    	this.endDate = this.fromStringToDate('2013-06-10', 'yyyy-mm-dd');	
    }   
    
-   this.intervalStart = this.startDate;
    this.source = source;
-
-   var copy = new Date();
-   copy.setTime(this.startDate.getTime());
-   this.intervalEnd = new Date(copy.setMonth(copy.getMonth()+1));
 
    this.data = this.filterData(this.startDate, this.endDate);
    this.length = this.data.length;
 }
 
-InfoRetriever.prototype.getNextInterval = function () {
-   this.intervalStart = new Date(this.intervalStart.setMonth(this.intervalStart.getMonth()+1));	
-   this.intervalEnd = new Date(this.intervalEnd.setMonth(this.intervalEnd.getMonth()+1));	
+InfoRetriever.prototype.getNextInterval = function () {      
+
+   if (this.intervalStart == undefined && this.intervalEnd == undefined) {
+      this.intervalStart = this.startDate;
+
+      var copy = new Date();
+      copy.setTime(this.startDate.getTime());
+      this.intervalEnd = new Date(copy.setMonth(copy.getMonth()+1));
+   } else {
+      this.intervalStart = new Date(this.intervalStart.setMonth(this.intervalStart.getMonth()+1));	
+      this.intervalEnd = new Date(this.intervalEnd.setMonth(this.intervalEnd.getMonth()+1));	
+   }
 
    return {
    	start: this.intervalStart,
@@ -36,7 +40,7 @@ InfoRetriever.prototype.getNextInterval = function () {
 }
 
 InfoRetriever.prototype.hasNext = function () {
-	return this.intervalEnd < this.endDate;
+	return this.intervalEnd < this.endDate || this.intervalEnd == undefined;
 };
 
 InfoRetriever.prototype.getNextPoints = function() {
