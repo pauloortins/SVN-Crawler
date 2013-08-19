@@ -3,115 +3,55 @@ import time
 from commit import *
 import urllib2
 import json
+from retriever import *
 
-def get_github_data(repository_url):
-    data = get_commits(repository_url)
-    commits = parse_github_data(data)
-    return commits
-
-def get_commits(repository_url):
-    response = urllib2.urlopen(repository_url + 'commits?per_page=100&access_token=aac0cd41817f478ae3be7e6ba920c0385705b7e0')
-    commits = []
-
-    commits.extend(get_commit_from_response(response))
-
-    link = get_next_link(response.info())
-    while link != None:
-        response = urllib2.urlopen(link)
-        commits.extend(get_commit_from_response(response))
-        link = get_next_link(response.info())
-
-    return commits
-
-def get_next_link(response_info):
-    link_header = response_info.getheader('Link')
-    first_piece = link_header.split(',')[0]
-
-    if 'rel="next"' in first_piece:
-        link = first_piece.replace('>; rel="next"', '')
-        link = link.replace('<','')
-        return link
-    else:
-        return None 
-
-def get_commit_from_response(response):
-
-    json_object = json.loads(response.read())
-
-    commits = []
-
-    for github_commit in json_object:
-        commits.append(github_commit)
-
-    return commits
-
-def parse_github_data(data):
+class GithubRetriever(Retriever):    
     
-    print "--- Parsing Data ---"
-
-    commits = []
-
-    for commit in data:
+    def __init__(self, github_service, locations_retriever, googlemaps_service):
+        self.github_service = github_service
+        self.locations_retriever = locations_retriever
+        self.googlemaps_service = googlemaps_service
         
-        if commit['author'] != None:
-            author = commit['author']['login']
-            date = commit['commit']['author']['date'].split('T')[0]
-            time = commit['commit']['author']['date'].split('T')[1].split('-')[0]
 
-            commits.append(Commit(author,date,time))
+    def get_commits(self):
+        data = self.github_service.get_info()
+        commits = self.parse_github_data(data)
+        self.update_locations(commits)
+        commits = self.link_commits_to_locations(commits, self.locations_retriever.get_locations())
 
-    commits.sort(key=lambda x:x.date)
-    return commits
+        return commits
 
-def get_github_locations(commits):
-    existing_locations = open("github_locations.txt",'r+')
+    def parse_github_data(self, data):
+        
+        print "--- Parsing Data ---"
 
-    hash_locations = {}
+        commits = []
 
-    for line in existing_locations:
-        attrs = line.split('|')
-        name = attrs[0].strip()
-        lat = attrs[-2].strip()
-        lng = attrs[-1].strip()
-        hash_locations[name] = {
-            'name': name,
-            'lat' : lat,
-            'lng' : lng
-        }
+        for commit in data:
+            
+            if commit['author'] != None:
+                author = commit['author']['login']
+                date = commit['commit']['author']['date'].split('T')[0]
+                time = commit['commit']['author']['date'].split('T')[1].split('-')[0].replace('Z', '')
 
-    committers = get_committers_from_commits(commits)
+                commits.append(Commit(author,date,time))
 
-    for committer in committers:
-        if (not committer in hash_locations):
-            lat, lng = get_committer_geolocation(committer)
-            existing_locations.write('{0}|{1}|{2}\n'.format(committer,lat,lng))
+        commits.sort(key=lambda x:x.date)
+        return commits
 
-    return open("github_locations.txt")
+    def update_locations(self, commits):
+        committers = self.get_committers_from_commits(commits)
+        locations = self.locations_retriever.get_locations()
 
-def get_committers_from_commits(commits):
-    authors = map(lambda x: x.author, commits)
-    unique_authors = list(set(authors))
-    unique_authors.sort()
+        for committer in committers:
+            if (not committer in locations):
+                committer_address = self.github_service.get_address_for_user(committer)
+                lat, lng = self.googlemaps_service.get_coordinates_for_address(committer_address)
+                self.locations_retriever.add_location(committer, lat, lng)
 
-    return unique_authors 
+    def get_committers_from_commits(self, commits):
+        authors = map(lambda x: x.author, commits)
+        unique_authors = list(set(authors))
+        unique_authors.sort()
 
-def get_committer_geolocation(committer):
-    response = urllib2.urlopen('https://api.github.com/users/' + committer)
-    json_object = json.loads(response.read())
-    print json_object
-    if 'location' in json_object:
-        lat,lng = get_coordinates_from_location(json_object['location'])
-    else:
-        lat = -1
-        lng = -1
-
-    return (lat, lng)
-
-def get_coordinates_from_location(location):
-    location = location.replace(' ', '+')
-    url = 'http://maps.googleapis.com/maps/api/geocode/json?address={0}&sensor=false'.format(location)
-    response = urllib2.urlopen(url)
-    json_object = json.loads(response.read())
-    lat = json_object['results'][0]['geometry']['location']['lat']
-    lng = json_object['results'][0]['geometry']['location']['lng']
-    return lat,lng
+        return unique_authors    

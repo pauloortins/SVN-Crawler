@@ -2,29 +2,37 @@ import pysvn
 import datetime
 import time
 from commit import *
+from retriever import *
 
-def get_svn_data(repository_url):
-    client = pysvn.Client()    
-    data = client.log(repository_url, limit=100)
-    commits = parse_svn_data(data)
-    return commits
+class SvnRetriever(Retriever):
 
-def parse_svn_data(data):
-    
-    print "--- Parsing Data ---"
+    def __init__(self, svn_service, locations_retriever):
+        self.svn_service = svn_service
+        self.locations_retriever = locations_retriever
 
-    commits = []
+    def get_commits(self):
+        data = self.svn_service.get_info()
+        commits = self.parse_svn_data(data)
+        commits = self.link_commits_to_locations(commits, self.locations_retriever.get_locations())
 
-    for log in data:
-        full_date = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(log.date)).strip()
-        date = full_date.split(' ')[0]
-        commit_time = full_date.split(' ')[1]
-        author = 'undefined'
-    
-        if hasattr(log, 'author'):
-            author = log.author
+        return commits
 
-        commits.append(Commit(author, date, commit_time))
+    def parse_svn_data(self, data):
+        
+        print "--- Parsing Data ---"
 
-    commits.sort(key=lambda x:x.date)
-    return commits
+        commits = []
+
+        for log in data:
+            full_date = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(log.date)).strip()
+            date = full_date.split(' ')[0]
+            commit_time = full_date.split(' ')[1]
+            author = 'undefined'
+        
+            if hasattr(log, 'author'):
+                author = log.author
+
+            commits.append(Commit(author, date, commit_time))
+
+        commits.sort(key=lambda x:x.date)
+        return commits

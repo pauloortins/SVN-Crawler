@@ -15,6 +15,7 @@ function HeatMap(mapId, progressBarId, progressLabelId, source) {
 		data: self.pointArray,
     dissipation: true,
     maxIntensity: 100
+
 	});
 
   self.source = source;
