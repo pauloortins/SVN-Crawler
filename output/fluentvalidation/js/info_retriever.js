@@ -88,3 +88,16 @@ InfoRetriever.prototype.getCompleteProgress = function() {
 	return rounded_progress;
 };
 
+InfoRetriever.prototype.getWeekdayData = function() {
+   var data = this.filterData(this.startDate, this.intervalEnd);
+
+   var arrayWeekdays = [0, 0, 0, 0, 0, 0, 0];
+   var length = data.length;
+
+   for (var i = 0; i < length; i++) {
+      arrayWeekdays[data.weekday] = arrayWeekdays[data.weekday] + 1;
+   }
+
+   return arrayWeekdays;
+}
+

@@ -60,23 +60,41 @@
       <div id='commits'>
         <h2>Commits</h2>
         <div id="commit-progressbar"><div id="commit-progress-label"></div></div>
-  			<div id="commit-map"></div>	
       </div>
       <div id='emails'>
         <h2>Emails</h2>
         <div id="email-progressbar"><div id="email-progress-label"></div></div>
-        <div id="email-map"></div> 
       </div>
-
+      <div id="map-container">
+        <div id="commit-map"></div> 
+        <div id="email-map"></div>
+      </div>
+      <div id='graph-container'>
+        <div id="weekday" class="draggable graph">
+          <div id='weekday-graph'>
+          </div>
+        </div>
+        <div id="timeoftheday" class="draggable graph">
+          <div id='timeoftheday-graph'>
+          </div>
+        </div>
+        <div id="time" class="draggable graph">
+          <div id='time-graph'>
+          </div>
+        </div>
+      </div>
 </div>
 <script type="text/javascript" src="js/lib/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script type="text/javascript" src="js/flowsy.js"></script>
 <script type="text/javascript" src="js/commits.js"></script>
 <script type="text/javascript" src="js/emails.js"></script>
 <script type="text/javascript" src="js/info_retriever.js"></script>
 <script type="text/javascript" src="js/heat_map.js"></script>
 <script type="text/javascript" src="js/page.js"></script>
+
 <script type="text/javascript">
 
 google.maps.event.addDomListener(window, 'load', initialize);

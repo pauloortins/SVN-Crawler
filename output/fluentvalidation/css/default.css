@@ -9,12 +9,15 @@ html, body {
 }
 
 #commit-map, #email-map {
-    height: 70%;
+    height: 40%;
+    width: 99%;
+    float: left;
+    margin: 10px;
 }
 
 #control-panel {
     float: left;
-    width: 100%;
+    width: 35%;
 }
 
 #panel {
@@ -29,13 +32,22 @@ html, body {
 }
 
 #commits, #emails {
-    width: 48%;
+    width: 20%;
+    float: left;
+    margin: 2px;
+}
+
+.graph {
+    width: 46%;
+    height: 40%;
     float: left;
     margin: 10px;
+    border: 1pt solid;
 }
 
 #commits h2 , #emails h2 {
     text-align: center;
+    margin: 2px;
 }
 
 #commit-messages, #email-messages {
@@ -51,7 +63,7 @@ html, body {
 
 #commit-progress-label, #email-progress-label {
     position: absolute;
-    left: 50%;
+    left: 35%;
     top: 4px;
     font-weight: bold;
     text-shadow: 1px 1px 0 #fff;
@@ -59,4 +71,16 @@ html, body {
 
 img {
     cursor: pointer;
+}
+
+#graph-container {
+    width: 56%;
+    height: 100%;
+    float: left;
+}
+
+#map-container {
+    float: left;
+    width: 40%;
+    height: 100%;
 }
