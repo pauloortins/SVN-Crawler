@@ -16,8 +16,13 @@ html, body {
 }
 
 #control-panel {
+    height: 20%;
+}
+
+#slider {
+    margin: 5 5 5 70px;
     float: left;
-    width: 35%;
+    width: 30%;
 }
 
 #panel {
@@ -31,8 +36,8 @@ html, body {
     z-index: 5;
 }
 
-#commits, #emails {
-    width: 20%;
+#commits, #emails, #developers {
+    width: 15%;
     float: left;
     margin: 2px;
 }
@@ -45,7 +50,7 @@ html, body {
     border: 1pt solid;
 }
 
-#commits h2 , #emails h2 {
+#commits h2 , #emails h2, #developers h2 {
     text-align: center;
     margin: 2px;
 }

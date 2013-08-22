@@ -7,7 +7,7 @@ class SvnService(object):
 
     def get_info(self):
         client = pysvn.Client()    
-        data = client.log(self.repository_url, limit=100)
+        data = client.log(self.repository_url)
         return data
 
         

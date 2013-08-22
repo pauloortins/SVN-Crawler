@@ -3,251 +3,88 @@ function Page() {
 
 Page.prototype.init = function() {
   this.createReferences();
-  this.bindElements();
-  this.setDraggable();
-
-  this.flowsyManager.goTo('initial');
-}
-
-Page.prototype.setDraggable = function() {
-  var self = this;
-
-
-  $(".draggable").draggable({ containment: "#graph-container"});
-
-  // $("#weekday").resizable({
-  //     stop: function() {
-  //       $('#weekday-graph').highcharts().setSize($(this).width(), $(this).height());
-  //     }
-  //   });
-
-  // $("#timeoftheday").resizable({
-  //     stop: function() {
-  //       $('#timeoftheday-graph').highcharts().setSize($(this).width(), $(this).height());
-  //     }
-  // });
-
-  // $("#time").resizable({
-  //     stop: function() {
-  //       $('#time-graph').highcharts().setSize($(this).width(), $(this).height());
-  //     }
-  // });
 }
 
 Page.prototype.createReferences = function () {
   var self = this;
 
-  this.commitMap = new HeatMap('commit-map', 'commit-progressbar', 'commit-progress-label', CommitRetriever);  
-  this.emailMap = new HeatMap('email-map', 'email-progressbar', 'email-progress-label', EmailRetriever);  
-  this.flowsyManager = new Flowsy({
-      'initial': {action: self.initial.bind(self), 'play': 'playing'},
-      'playing': {action: self.playing.bind(self), 'stop': 'stopped'},
-      'stopped': {action: self.stopped.bind(self), 'play': 'playing', 'clear': 'initial'}
+  self.commitRetriever = new InfoRetriever(new CommitRetriever().get());
+  self.emailRetriever = new InfoRetriever(new EmailRetriever().get());
+  self.graphs = new Graphs();
+  self.maps = new Maps();
+  self.slider = $("#slider").dateRangeSlider({
+    bounds: {min: new Date(1995, 0, 1), max: new Date(2013, 11, 31, 12, 59, 59)}
+  }).bind("userValuesChanged", function(e,data) {
+    self.refreshData.call(self,true);
   });
 
-  this.weekdayGraph = $('#weekday-graph').highcharts({
-            chart: {width: $("#weekday").width() - 30, height: $("#weekday").height()},
-            title: {
-                text: 'Monthly Average Temperature',
-                x: -20 //center
-            },
-            subtitle: {
-                text: 'Source: WorldClimate.com',
-                x: -20
-            },
-            xAxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            },
-            yAxis: {
-                title: {
-                    text: 'Temperature (°C)'
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-            tooltip: {
-                valueSuffix: '°C'
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle',
-                borderWidth: 0
-            },
-            series: [{
-                name: 'Tokyo',
-                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-            }, {
-                name: 'New York',
-                data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-            }, {
-                name: 'Berlin',
-                data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-            }, {
-                name: 'London',
-                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-            }]
-        });
+  self.cmbDevelopers = $("#cmbDevelopers").change(function() {self.refreshData.call(self,false);});
 
-    this.timeoftheday = $('#timeoftheday-graph').highcharts({
-            chart: {width: $("#timeoftheday").width() - 30, height: $("#timeoftheday").height() },
-            title: {
-                text: 'Monthly Average Temperature',
-                x: -20 //center
-            },
-            subtitle: {
-                text: 'Source: WorldClimate.com',
-                x: -20
-            },
-            xAxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            },
-            yAxis: {
-                title: {
-                    text: 'Temperature (°C)'
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-            tooltip: {
-                valueSuffix: '°C'
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle',
-                borderWidth: 0
-            },
-            series: [{
-                name: 'Tokyo',
-                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-            }, {
-                name: 'New York',
-                data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-            }, {
-                name: 'Berlin',
-                data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-            }, {
-                name: 'London',
-                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-            }]
-        });
+  self.commitProgressLabel = $("#commit-progress-label");
+  self.commitProgressBar = $("#commit-progressbar").progressbar({
+    value: 0,
+    change: function() {
+      self.commitProgressLabel.text( self.commitProgressBar.progressbar( "value" ) + "%" );
+    },
+    complete: function() {
+      self.commitProgressLabel.text( "Complete!" );
+    }
+  });
 
-    this.time = $('#time-graph').highcharts({
-            chart: {width: $("#time").width() - 30, height: $("#time").height() },
-            title: {
-                text: 'Monthly Average Temperature',
-                x: -20 //center
-            },
-            subtitle: {
-                text: 'Source: WorldClimate.com',
-                x: -20
-            },
-            xAxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            },
-            yAxis: {
-                title: {
-                    text: 'Temperature (°C)'
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-            tooltip: {
-                valueSuffix: '°C'
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle',
-                borderWidth: 0
-            },
-            series: [{
-                name: 'Tokyo',
-                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-            }, {
-                name: 'New York',
-                data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-            }, {
-                name: 'Berlin',
-                data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-            }, {
-                name: 'London',
-                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-            }]
-        });
+  self.emailProgressLabel = $("#email-progress-label");
+
+  self.emailProgressBar = $("#email-progressbar").progressbar({
+    value: 0,
+    change: function() {
+      self.emailProgressLabel.text( self.emailProgressBar.progressbar( "value" ) + "%" );
+    },
+    complete: function() {
+      self.emailProgressLabel.text( "Complete!" );
+    }
+  });
 }
 
-Page.prototype.bindElements = function() {
+Page.prototype.refreshData = function(refreshCombo) {
   var self = this;
 
-  this.btnStart = $("#btnStart").click(function () {
-    self.start.call(self);
-  });
+  var minDate = $("#slider").dateRangeSlider("min");
+  var maxDate = $("#slider").dateRangeSlider("max");
+  var developer = $("#cmbDevelopers").val();
 
-  this.btnStop = $("#btnStop").click(function () {
-    self.stop.call(self);
-  });
+  var commitData = self.commitRetriever.filterData(minDate, maxDate, developer);
+  var emailData = self.emailRetriever.filterData(minDate, maxDate, developer);
 
-  this.btnClear = $("#btnClear").click(function () {
-    self.clear.call(self);
-  });
+  $.blockUI();
+  self.maps.update(commitData, emailData);
+  self.graphs.update(commitData, emailData);
+  self.commitProgressBar.progressbar( "value", self.commitRetriever.getCompletedProgress());
+  self.emailProgressBar.progressbar( "value", self.emailRetriever.getCompletedProgress());
+  if (refreshCombo) {
+    self.updateCombo(commitData);
+  }
+  $.unblockUI();
+};
 
-  this.cmbStartDate = $("#cmbStartDate");
-  this.cmbEndDate = $("#cmbEndDate");
-}
+Page.prototype.updateCombo = function(data) {
+  
+  var authors = [];
+  var author;
+  for (var i = 0; i < data.length; i++) {
+    author = data[i].author;
+    if (authors.indexOf(author) == -1) {
+      authors.push(author);
+    }
+  };
 
-Page.prototype.start = function() {
-  this.flowsyManager.goTo('playing');
-}
+  authors.sort();
 
-Page.prototype.stop = function() {
-  this.flowsyManager.goTo('stopped');
-}
+  var cmbDevelopers = $("#cmbDevelopers");
+  cmbDevelopers.empty();
+  cmbDevelopers.append("<option value='ALL'>ALL</option>");
 
-Page.prototype.clear = function() {
-  this.flowsyManager.goTo('initial');
-}
-
-Page.prototype.initial = function () {
-  this.commitMap.clear();
-  this.emailMap.clear();
-  this.btnStart.removeAttr('disabled');
-  this.btnStop.prop('disabled', true);
-  this.btnClear.prop('disabled', true);
-  $(this.txtStartDate).datepicker('enable');
-  $(this.txtEndDate).datepicker('enable');
-}
-
-Page.prototype.playing = function () {
-  this.commitMap.start('01/01/' + this.cmbStartDate.val(), '12/31/' + this.cmbEndDate.val());
-  this.emailMap.start('01/01/' + this.cmbStartDate.val(), '12/31/' + this.cmbEndDate.val());
-  this.btnStart.prop('disabled', true);
-  this.btnStop.removeAttr('disabled');
-  this.btnClear.prop('disabled', true);
-  $(this.txtStartDate).datepicker('disable');
-  $(this.txtEndDate).datepicker('disable');
-}
-
-Page.prototype.stopped = function () {
-  this.commitMap.stop();
-  this.emailMap.stop();
-  this.btnStart.removeAttr('disabled');
-  this.btnStop.prop('disabled', true);
-  this.btnClear.removeAttr('disabled');
-  $(this.txtStartDate).datepicker('disable');
-  $(this.txtEndDate).datepicker('disable');
-}
+  for (var i = 0; i < authors.length; i++) {
+    author = authors[i];
+    cmbDevelopers.append("<option value='" + author + "'>" + author + "</option>");
+  };
+};
 
