@@ -1,5 +1,6 @@
 import urllib2
 import json
+import urllib
 
 class GoogleMapsService(object):
     """docstring for GoogleMapsService"""
@@ -7,7 +8,7 @@ class GoogleMapsService(object):
 
         try:
             location = location.replace(' ', '+')
-            url = 'http://maps.googleapis.com/maps/api/geocode/json?address={0}&sensor=false'.format(location)
+            url = 'http://maps.googleapis.com/maps/api/geocode/json?address={0}&sensor=false'.format(urllib.quote_plus(location))
             response = urllib2.urlopen(url)
             json_object = json.loads(response.read())
             lat = json_object['results'][0]['geometry']['location']['lat']

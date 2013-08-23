@@ -2055,7 +2055,7 @@ CommitRetriever.prototype.get = function() {
 {"author": "taylorotwell", "value": 1, "lat": 35.20105, "lng": -91.8318334, "date": "2012-03-28", "time": "18:58:02", "weekday": 2},
 {"author": "taylorotwell", "value": 1, "lat": 35.20105, "lng": -91.8318334, "date": "2012-03-28", "time": "16:43:32", "weekday": 2},
 {"author": "taylorotwell", "value": 1, "lat": 35.20105, "lng": -91.8318334, "date": "2012-03-28", "time": "16:07:26", "weekday": 2},
-{"author": "tenga", "value": 1, "lat": -36.7896946, "lng": -73.1134396, "date": "2012-03-28", "time": "09:09:47", "weekday": 2},
+{"author": "tenga", "value": 1, "lat": 28.5630924, "lng": 77.1609227, "date": "2012-03-28", "time": "09:09:47", "weekday": 2},
 {"author": "taylorotwell", "value": 1, "lat": 35.20105, "lng": -91.8318334, "date": "2012-03-28", "time": "03:40:13", "weekday": 2},
 {"author": "taylorotwell", "value": 1, "lat": 35.20105, "lng": -91.8318334, "date": "2012-03-28", "time": "03:36:45", "weekday": 2},
 {"author": "taylorotwell", "value": 1, "lat": 35.20105, "lng": -91.8318334, "date": "2012-03-29", "time": "22:13:13", "weekday": 3},
