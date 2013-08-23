@@ -9,7 +9,7 @@ html, body {
 }
 
 #commit-map, #email-map {
-    height: 40%;
+    height: 80%;
     width: 99%;
     float: left;
     margin: 10px;
