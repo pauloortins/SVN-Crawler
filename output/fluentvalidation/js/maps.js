@@ -20,18 +20,9 @@ Maps.prototype.createReferences = function() {
     	maxIntensity: 100
 	});
 	self.commitHeatMap.setMap(self.commitMap);
-
-	self.emailMap = new google.maps.Map(document.getElementById('email-map'), mapOptions);
-	self.emailPointArray = new google.maps.MVCArray([]);
-	self.emailHeatMap = new google.maps.visualization.HeatmapLayer({
-		data: self.emailPointArray,
-    	dissipation: true,
-    	maxIntensity: 100
-	});
-	self.emailHeatMap.setMap(self.emailMap);
 };
 
-Maps.prototype.update = function(commitData, emailData) {
+Maps.prototype.update = function(commitData) {
 	var self = this;
 
 	var commit;
@@ -43,14 +34,4 @@ Maps.prototype.update = function(commitData, emailData) {
             weight: commit.value
         });
 	};
-
-	var email;
-	self.emailPointArray.clear();
-	for (var i = 0; i < emailData.length; i++) {
-		email = emailData[i];
-		self.emailPointArray.push({
-            location: new google.maps.LatLng(email.lat,email.lng), 
-            weight: email.value
-        });
-	};	
 };

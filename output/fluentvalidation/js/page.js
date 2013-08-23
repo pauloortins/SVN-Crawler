@@ -9,7 +9,7 @@ Page.prototype.createReferences = function () {
   var self = this;
 
   self.commitRetriever = new InfoRetriever(new CommitRetriever().get());
-  self.emailRetriever = new InfoRetriever(new EmailRetriever().get());
+  
   self.graphs = new Graphs();
   self.maps = new Maps();
   self.slider = $("#slider").dateRangeSlider({
@@ -30,18 +30,6 @@ Page.prototype.createReferences = function () {
       self.commitProgressLabel.text( "Complete!" );
     }
   });
-
-  self.emailProgressLabel = $("#email-progress-label");
-
-  self.emailProgressBar = $("#email-progressbar").progressbar({
-    value: 0,
-    change: function() {
-      self.emailProgressLabel.text( self.emailProgressBar.progressbar( "value" ) + "%" );
-    },
-    complete: function() {
-      self.emailProgressLabel.text( "Complete!" );
-    }
-  });
 }
 
 Page.prototype.refreshData = function(refreshCombo) {
@@ -52,13 +40,11 @@ Page.prototype.refreshData = function(refreshCombo) {
   var developer = $("#cmbDevelopers").val();
 
   var commitData = self.commitRetriever.filterData(minDate, maxDate, developer);
-  var emailData = self.emailRetriever.filterData(minDate, maxDate, developer);
 
   $.blockUI();
-  self.maps.update(commitData, emailData);
-  self.graphs.update(commitData, emailData);
+  self.maps.update(commitData);
+  self.graphs.update(commitData);
   self.commitProgressBar.progressbar( "value", self.commitRetriever.getCompletedProgress());
-  self.emailProgressBar.progressbar( "value", self.emailRetriever.getCompletedProgress());
   if (refreshCombo) {
     self.updateCombo(commitData);
   }

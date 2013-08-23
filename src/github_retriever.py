@@ -27,10 +27,9 @@ class GithubRetriever(Retriever):
 
         commits = []
 
-        for commit in data:
-            
+        for commit in data:            
             if commit['author'] != None:
-                author = commit['author']['login']
+                author = commit['author']['login'].lower()
                 date = commit['commit']['author']['date'].split('T')[0]
                 time = commit['commit']['author']['date'].split('T')[1].split('-')[0].replace('Z', '')
 

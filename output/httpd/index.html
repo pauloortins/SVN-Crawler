@@ -4,79 +4,61 @@
 	<title>Httpd Map</title>
 	<link href="css/default.css" rel="stylesheet">
   <link href="css/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/iThing.css" type="text/css" />
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
 </head>
 <body>
 <div id="main">	
-      <div id='control-panel'>		
-  			<input type="button" value='Start' id='btnStart' />			
-        <input type="button" value='Stop' id='btnStop' />
-        <input type="button" value='Clear' id='btnClear' />
-        Start Date:
-        <select id="cmbStartDate">
-          <option value='1996'>1996</option>
-          <option value='1997'>1997</option>
-          <option value='1998'>1998</option>
-          <option value='1999'>1999</option>
-          <option value='2000'>2000</option>
-          <option value='2001'>2001</option>
-          <option value='2002'>2002</option>
-          <option value='2003'>2003</option>
-          <option value='2004'>2004</option>
-          <option value='2005'>2005</option>
-          <option value='2006'>2006</option>
-          <option value='2007'>2007</option>
-          <option value='2008'>2008</option>
-          <option value='2009'>2009</option>
-          <option value='2010'>2010</option>
-          <option value='2011'>2011</option>               
-          <option value='2012'>2012</option>
-          <option value='2013'>2013</option>
-          <option value='2014'>2014</option>
-        </select>
-        End Date:
-        <select id="cmbEndDate">
-          <option value='1996'>1996</option>
-          <option value='1997'>1997</option>
-          <option value='1998'>1998</option>
-          <option value='1999'>1999</option>
-          <option value='2000'>2000</option>
-          <option value='2001'>2001</option>
-          <option value='2002'>2002</option>
-          <option value='2003'>2003</option>
-          <option value='2004'>2004</option>
-          <option value='2005'>2005</option>
-          <option value='2006'>2006</option>
-          <option value='2007'>2007</option>
-          <option value='2008'>2008</option>
-          <option value='2009'>2009</option>
-          <option value='2010'>2010</option>
-          <option value='2011'>2011</option>               
-          <option value='2012'>2012</option>
-          <option value='2013'>2013</option>
-          <option value='2014' selected>2014</option>          
-        </select>        
-      </div>
-      <div id='commits'>
+      <div id='control-panel'>	
+  			<div id="slider"></div>
+        <div id='commits'>
         <h2>Commits</h2>
         <div id="commit-progressbar"><div id="commit-progress-label"></div></div>
-  			<div id="commit-map"></div>	
       </div>
       <div id='emails'>
         <h2>Emails</h2>
         <div id="email-progressbar"><div id="email-progress-label"></div></div>
-        <div id="email-map"></div> 
       </div>
-
+      <div id='developers'>
+        <h2>By Developers</h2>
+        <select id="cmbDevelopers">
+          <option value="ALL">ALL</option>
+        </select>
+      </div>
+      </div>
+      <div id="map-container">
+        <div id="commit-map"></div> 
+        <div id="email-map"></div>
+      </div>
+      <div id='graph-container'>
+        <div id="weekday" class="draggable graph">
+          <div id='weekday-graph'>
+          </div>
+        </div>
+        <div id="timeoftheday" class="draggable graph">
+          <div id='timeoftheday-graph'>
+          </div>
+        </div>
+        <div id="time" class="draggable graph graph-full">
+          <div id='time-graph'>
+          </div>
+        </div>
+      </div>
 </div>
 <script type="text/javascript" src="js/lib/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery-ui-1.10.3.custom.min.js"></script>
-<script type="text/javascript" src="js/flowsy.js"></script>
+<script type="text/javascript" src="js/lib/jQDateRangeSlider-withRuler-min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.blockUI.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script type="text/javascript" src="js/commits.js"></script>
 <script type="text/javascript" src="js/emails.js"></script>
+<script type="text/javascript" src="js/graphs.js"></script>
 <script type="text/javascript" src="js/info_retriever.js"></script>
-<script type="text/javascript" src="js/heat_map.js"></script>
 <script type="text/javascript" src="js/page.js"></script>
+<script type="text/javascript" src="js/maps.js"></script>
+
+
 <script type="text/javascript">
 
 google.maps.event.addDomListener(window, 'load', initialize);

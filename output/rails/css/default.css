@@ -1,0 +1,95 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: auto;
+}
+
+#commit-map, #email-map {
+    height: 40%;
+    width: 99%;
+    float: left;
+    margin: 10px;
+}
+
+#control-panel {
+    height: 20%;
+}
+
+#slider {
+    margin: 5 5 5 70px;
+    float: left;
+    width: 30%;
+}
+
+#panel {
+    background-color: #FFFFFF;
+    border: 1px solid #999999;
+    left: 50%;
+    margin-left: -180px;
+    padding: 5px;
+    position: absolute;
+    top: 5px;
+    z-index: 5;
+}
+
+#commits, #emails, #developers {
+    width: 15%;
+    float: left;
+    margin: 2px;
+}
+
+.graph {
+    width: 46%;
+    height: 40%;
+    float: left;
+    margin: 10px;
+    border: 1pt solid;
+}
+
+.graph-full {
+    width: 98%
+}
+
+#commits h2 , #emails h2, #developers h2 {
+    text-align: center;
+    margin: 2px;
+}
+
+#commit-messages, #email-messages {
+    text-align: center;
+}
+
+.ui-progressbar {
+    position: relative;
+    width: 50%;
+    margin: 10px auto;
+
+}
+
+#commit-progress-label, #email-progress-label {
+    position: absolute;
+    left: 35%;
+    top: 4px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+}
+
+img {
+    cursor: pointer;
+}
+
+#graph-container {
+    width: 56%;
+    height: 100%;
+    float: left;
+}
+
+#map-container {
+    float: left;
+    width: 40%;
+    height: 100%;
+}

@@ -3,81 +3,88 @@ function Page() {
 
 Page.prototype.init = function() {
   this.createReferences();
-  this.bindElements();
-
-  this.flowsyManager.goTo('initial');
 }
 
 Page.prototype.createReferences = function () {
   var self = this;
 
-  this.commitMap = new HeatMap('commit-map', 'commit-progressbar', 'commit-progress-label', CommitRetriever);  
-  this.emailMap = new HeatMap('email-map', 'email-progressbar', 'email-progress-label', EmailRetriever);  
-  this.flowsyManager = new Flowsy({
-      'initial': {action: self.initial.bind(self), 'play': 'playing'},
-      'playing': {action: self.playing.bind(self), 'stop': 'stopped'},
-      'stopped': {action: self.stopped.bind(self), 'play': 'playing', 'clear': 'initial'}
+  self.commitRetriever = new InfoRetriever(new CommitRetriever().get());
+  self.emailRetriever = new InfoRetriever(new EmailRetriever().get());
+  self.graphs = new Graphs();
+  self.maps = new Maps();
+  self.slider = $("#slider").dateRangeSlider({
+    bounds: {min: new Date(1995, 0, 1), max: new Date(2013, 11, 31, 12, 59, 59)}
+  }).bind("userValuesChanged", function(e,data) {
+    self.refreshData.call(self,true);
+  });
+
+  self.cmbDevelopers = $("#cmbDevelopers").change(function() {self.refreshData.call(self,false);});
+
+  self.commitProgressLabel = $("#commit-progress-label");
+  self.commitProgressBar = $("#commit-progressbar").progressbar({
+    value: 0,
+    change: function() {
+      self.commitProgressLabel.text( self.commitProgressBar.progressbar( "value" ) + "%" );
+    },
+    complete: function() {
+      self.commitProgressLabel.text( "Complete!" );
+    }
+  });
+
+  self.emailProgressLabel = $("#email-progress-label");
+
+  self.emailProgressBar = $("#email-progressbar").progressbar({
+    value: 0,
+    change: function() {
+      self.emailProgressLabel.text( self.emailProgressBar.progressbar( "value" ) + "%" );
+    },
+    complete: function() {
+      self.emailProgressLabel.text( "Complete!" );
+    }
   });
 }
 
-Page.prototype.bindElements = function() {
+Page.prototype.refreshData = function(refreshCombo) {
   var self = this;
 
-  this.btnStart = $("#btnStart").click(function () {
-    self.start.call(self);
-  });
+  var minDate = $("#slider").dateRangeSlider("min");
+  var maxDate = $("#slider").dateRangeSlider("max");
+  var developer = $("#cmbDevelopers").val();
 
-  this.btnStop = $("#btnStop").click(function () {
-    self.stop.call(self);
-  });
+  var commitData = self.commitRetriever.filterData(minDate, maxDate, developer);
+  var emailData = self.emailRetriever.filterData(minDate, maxDate, developer);
 
-  this.btnClear = $("#btnClear").click(function () {
-    self.clear.call(self);
-  });
+  $.blockUI();
+  self.maps.update(commitData, emailData);
+  self.graphs.update(commitData, emailData);
+  self.commitProgressBar.progressbar( "value", self.commitRetriever.getCompletedProgress());
+  self.emailProgressBar.progressbar( "value", self.emailRetriever.getCompletedProgress());
+  if (refreshCombo) {
+    self.updateCombo(commitData);
+  }
+  $.unblockUI();
+};
 
-  this.cmbStartDate = $("#cmbStartDate");
-  this.cmbEndDate = $("#cmbEndDate");
-}
+Page.prototype.updateCombo = function(data) {
+  
+  var authors = [];
+  var author;
+  for (var i = 0; i < data.length; i++) {
+    author = data[i].author;
+    if (authors.indexOf(author) == -1) {
+      authors.push(author);
+    }
+  };
 
-Page.prototype.start = function() {
-  this.flowsyManager.goTo('playing');
-}
+  authors.sort();
 
-Page.prototype.stop = function() {
-  this.flowsyManager.goTo('stopped');
-}
+  var cmbDevelopers = $("#cmbDevelopers");
+  cmbDevelopers.empty();
+  cmbDevelopers.append("<option value='ALL'>ALL</option>");
 
-Page.prototype.clear = function() {
-  this.flowsyManager.goTo('initial');
-}
-
-Page.prototype.initial = function () {
-  this.commitMap.clear();
-  this.emailMap.clear();
-  this.btnStart.removeAttr('disabled');
-  this.btnStop.prop('disabled', true);
-  this.btnClear.prop('disabled', true);
-  $(this.txtStartDate).datepicker('enable');
-  $(this.txtEndDate).datepicker('enable');
-}
-
-Page.prototype.playing = function () {
-  this.commitMap.start('01/01/' + this.cmbStartDate.val(), '12/31/' + this.cmbEndDate.val());
-  this.emailMap.start('01/01/' + this.cmbStartDate.val(), '12/31/' + this.cmbEndDate.val());
-  this.btnStart.prop('disabled', true);
-  this.btnStop.removeAttr('disabled');
-  this.btnClear.prop('disabled', true);
-  $(this.txtStartDate).datepicker('disable');
-  $(this.txtEndDate).datepicker('disable');
-}
-
-Page.prototype.stopped = function () {
-  this.commitMap.stop();
-  this.emailMap.stop();
-  this.btnStart.removeAttr('disabled');
-  this.btnStop.prop('disabled', true);
-  this.btnClear.removeAttr('disabled');
-  $(this.txtStartDate).datepicker('disable');
-  $(this.txtEndDate).datepicker('disable');
-}
+  for (var i = 0; i < authors.length; i++) {
+    author = authors[i];
+    cmbDevelopers.append("<option value='" + author + "'>" + author + "</option>");
+  };
+};
 

@@ -22,6 +22,9 @@ class GithubService(object):
 
     def get_next_link(self, response_info):
         link_header = response_info.getheader('Link')
+        if (link_header == None):
+            return None
+
         first_piece = link_header.split(',')[0]
 
         if 'rel="next"' in first_piece:

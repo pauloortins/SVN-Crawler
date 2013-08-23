@@ -50,6 +50,10 @@ html, body {
     border: 1pt solid;
 }
 
+.graph-full {
+    width: 98%
+}
+
 #commits h2 , #emails h2, #developers h2 {
     text-align: center;
     margin: 2px;

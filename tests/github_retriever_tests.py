@@ -12,7 +12,7 @@ class GithubRetrieverTests(unittest.TestCase):
     def setUp(self):
         log1_github = '{ "commit": { "author": { \
                             "date": "2010-04-10T14:10:01-07:00",\
-                            "name": "Scott Chacon" }}, "author": {"login":"login1"} }'
+                            "name": "Scott Chacon" }}, "author": {"login":"Login1"} }'
 
         log2_github = '{ "commit": { "author": { \
                             "date": "2010-04-10T14:10:01-07:00",\

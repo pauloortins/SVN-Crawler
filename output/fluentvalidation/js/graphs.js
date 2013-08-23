@@ -15,17 +15,14 @@ Graphs.prototype.createReferences = function() {
     this.time = this.createTimeGraph();
 };
 
-Graphs.prototype.update = function (commitData, emailData) {
+Graphs.prototype.update = function (commitData) {
 	var self = this;
 
 	self.weekdayGraph.highcharts().series[0].setData(self.generateDataPerWeekday(commitData));
-	self.weekdayGraph.highcharts().series[1].setData(self.generateDataPerWeekdayEmail(emailData));
 
 	self.timeoftheday.highcharts().series[0].setData(self.generateDataPerTimeOfTheDay(commitData));
-	self.timeoftheday.highcharts().series[1].setData(self.generateDataPerTimeOfTheDay(emailData));	
 
 	self.time.highcharts().series[0].setData(self.generateDataPerTime(commitData));
-	self.time.highcharts().series[1].setData(self.generateDataPerTime(emailData));
 };
 
 Graphs.prototype.generateDataPerWeekday = function(data) {
@@ -35,18 +32,6 @@ Graphs.prototype.generateDataPerWeekday = function(data) {
 	for (var i = 0; i < data.length; i++) {
 		unit = data[i];
 		weekdayData[unit.weekday] = weekdayData[unit.weekday] + 1;
-	};
-
-	return weekdayData;
-};
-
-Graphs.prototype.generateDataPerWeekdayEmail = function(data) {
-	var weekdayData = [0,0,0,0,0,0,0];
-
-	var unit;
-	for (var i = 0; i < data.length; i++) {
-		unit = data[i];
-		weekdayData[unit.weekday-1] = weekdayData[unit.weekday-1] + 1;
 	};
 
 	return weekdayData;
@@ -142,9 +127,6 @@ Graphs.prototype.createWeekdayGraph = function() {
             series: [{
                 name: 'Commit',
                 data: [0,0,0,0,0,0,0]
-            }, {
-                name: 'Email',
-                data: [0,0,0,0,0,0,0]
             }]
         });
 };
@@ -187,9 +169,6 @@ Graphs.prototype.createTimeOfTheDayGraph = function() {
             series: [{
                 name: 'Commit',
                 data: [0,0,0,0,0,0,0,0,0,0,0,0]
-            }, {
-                name: 'Email',
-                data: [0,0,0,0,0,0,0,0,0,0,0,0]
             }]
         });
 };
@@ -230,9 +209,6 @@ Graphs.prototype.createTimeGraph = function() {
             },
             series: [{
                 name: 'Commit',
-                data: []
-            }, {
-                name: 'Email',
                 data: []
             }]
         });
