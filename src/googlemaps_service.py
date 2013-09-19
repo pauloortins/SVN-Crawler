@@ -18,4 +18,15 @@ class GoogleMapsService(object):
             lng = -1
         return lat,lng
 
+    def get_timezone_from_coordinates(self, lat, lng):
+        try:
+            
+            url = 'https://maps.googleapis.com/maps/api/timezone/json?location={0},{1}&timestamp=1331161200&sensor=true'.format(lat, lng)
+            response = urllib2.urlopen(url)
+            json_object = json.loads(response.read())
+            timezone = json_object["rawOffset"] / 3600
+        except Exception, e:
+            return 0
+
+        return timezone
         

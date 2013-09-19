@@ -14,7 +14,7 @@ class SvnRetriever(Retriever):
         data = self.svn_service.get_info()
         commits = self.parse_svn_data(data)
         commits = self.link_commits_to_locations(commits, self.locations_retriever.get_locations())
-
+        
         return commits
 
     def parse_svn_data(self, data):

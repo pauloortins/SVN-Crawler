@@ -24,9 +24,10 @@ class OutputGenerator(object):
                '"value": ' + str(commit.value) + ', ' + \
                '"lat": ' + str(commit.lat) + ', ' + \
                '"lng": ' + str(commit.lng) + ', ' + \
-               '"date": "' + commit.date + '", ' + \
-               '"time": "' + commit.time + '", ' + \
-               '"weekday": ' + str(commit.weekday) + '}'
+               '"date": "' + str(commit.date.date()) + '", ' + \
+               '"time": "' + commit.date.time().strftime('%H:%M:%S') + '", ' + \
+               '"timeoffset": "' + str(commit.timeoffset) + '", ' + \
+               '"weekday": ' + str(commit.date.weekday()) + '}'
 
         json = json.replace('\n','').replace('\t','')
 

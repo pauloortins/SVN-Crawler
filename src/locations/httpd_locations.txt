@@ -1,117 +1,117 @@
-wrowe | 4825 |  William A. Rowe, Jr. | Gurnee, IL, US | 42.3763 | -87.899605
-jim | 3241 | Jim Jagielski | Forest Hill, Maryland, USA | 39.578736 | -76.378333
-nd | 3072 | André L. Malo | Saarbrücken, Germany | 49.250776 | 6.998184
-trawick | 3008 | Jeff Trawick | Raleigh, NC, USA | 35.801108 | -78.638978
-rbowen | 1780 | Rich Bowen | Lexington, KY | 38.067555 | -84.508424
-sf | 1391 | Stefan Fritsch | Munich, Germany | 48.148221 | 11.574676
-rpluem | 1302 | Rüdiger Plüm | Ratingen, Germany | 51.306579 | 6.836822
-dgaudet | 1282 | Dean Gaudet | San Francisco, CA, USA | 37.781841 | -122.420021
-minfrin | 1281 | Graham Leggett | London, England | 51.530106 | -0.121064
-rbb | 1239 | Ryan Bloom | Oakland, CA | 37.817378 | -122.271073
-jerenkrantz | 1219 | Justin Erenkrantz | Irvine, California | 33.689781 | -117.794091
-jorton | 1217 | Joe Orton | London, UK | 51.530106 | -0.123811
-joes | 1215 | Joe Schaefer | Lauderdale Lakes, Florida, USA | 26.166454 | -80.208448
-humbedooh | 1197 | Daniel Gruno | Copenhagen, Denmark | 26.167995 | -80.208448
-slive | 1080 | Joshua Slive | Montreal, Quebec, Canada | 45.525592 | -73.550935
-coar | 1071 | Ken Coar | Research Triangle Park, North Carolina, USA | 35.902678 | -78.864697
-dougm | 1025 | Doug MacEachern | San Francisco, CA, USA | 37.781027 | -122.420365
-stoddard | 1015 | Bill Stoddard | Research Triangle Park, NC, USA | 35.902539 | -78.86401
-rse | 936 | Ralf S. Engelschall | Munich, Germany | 48.145472 | 11.576736
-fielding | 904 | Roy T. Fielding | Irvine, California | 33.690067 | -117.795807
-covener | 894 | Eric Covener | Research Triangle Park, NC, USA | 35.902678 | -78.864182
-bnicholes | 894 | Brad Nicholes | Provo, Ut. USA | 40.246516 | -111.659653
-martin | 853 | Martin Kraemer | Munich, Germany | 48.14616 | 11.587089
-pquerna | 776 | Paul Querna | San Francisco, CA, USA | 37.782655 | -122.420021
-niq | 719 | Nick Kew | Tavistock, England | 50.553144 | -4.141873
-stas | 701 | Stas Bekman | Vancouver, Canada | 49.266684 | -123.113533
-rjung | 691 | Rainer Jung | Bonn, Germany | 50.746449 | 7.100494
-brianb | 689 | Brian Behlendorf | San Francisco, CA, USA | 37.780484 | -122.419678
-fuankg | 632 | Guenter Knauf | Germany | 48.146847 |11.578109
-ben | 498 | Ben Laurie | 51.520707 | -0.11615	
-jwoolley | 496 | Cliff Woolley | Charlottesville, VA | 38.034301 | -78.476425
-yoshiki | 435 | Yoshiki Hayashi | Tokyo, Japan | 35.717528 | 139.695067
-brianp | 406 | Brian Pane | Seattle, WA, USA | 47.617273 | -122.332871
-marc | 398 | Marc Slemko | Seattle, WA, USA | 47.616347 | -122.330811
-kess | 389 | Astrid Malo | Saarbrücken, Germany | 49.251224 | 6.99887
-gstein | 376 | Greg Stein | Palo Alto, CA, USA | 37.467229 | -122.144837
-pcs | 369 | Paul Sutton | Seattle, USA | 47.617273 | -122.329438
-erikabele | 342 | Erik Abele | Aalen, Germany | 48.856583 | 10.099761
-gregames | 330 | Greg Ames | Raleigh-Durham, North Carolina | 35.80779 | -78.637605
-nilgun | 320 | Nilgun Belma Buguner | Alanya | 36.565358 | 32.00209
-takashi | 319 | Takashi Sato | Tokyo, Japan | 35.714183 | 139.689574
-randy | 316 | Randy Terbush | Alta, WY, USA | 43.846413 | -111.034184
-grisha | 309 | Gregory Trubetskoy | Washington D.C. | 38.90653 | -77.035553
-colm | 300 | Colm MacCárthaigh | Dublin, Ireland | 53.365304 | -6.263795
-aaron | 297 | Aaron Bannert | San Francisco, CA, USA | 37.781027 | -122.418648
-mjc | 292 | Mark J. Cox | Glasgow, England | 55.866065 | -4.24907
-bjh | 238 | Brian Havard | Melbourne, Australia | -37.805444 | 144.96417
-striker | 238 | Sander Striker | Utrecht, The Netherlands | 52.092164 | 5.114715
-mturk | 235 | Mladen Turk | Croatia | 45.81229 | 15.978187
-chuck | 229 | Chuck Murcko | Sedona, AZ, USA | 34.869877 | -111.760925
-lars | 229 | Lars Eilebrecht | Munich, Germany | 48.137683 | 11.575363
-akosut | 229 | Alexei Kosut | Stanford, California | 37.424162 | -122.166107
-noodl | 222 | Vincent Bray | Newcastle, UK | 54.97919 | -1.618531
-manoj | 210 | Manoj Kasichainula | San Francisco, CA, USA | 37.785097 | -122.419335
-igalic | 206 | Igor Galić | Vienna | 48.209117 | 16.369232
-ianh | 205 | Ian Holsman | San Francisco, USA | 37.78374 | -122.418991
-pgollucci | 192 | Philip M. Gollucci | Alexandira, VA | 38.806273 | -77.042366
-gryzor | 189 | Vincent Deffontaines | France | 48.857487 | 2.352051
-nlehuen | 179 | Nicolas Lehuen | Paris, France | 48.857261 | 2.352737
-geoff | 176 | Geoffrey Young | Philadelphia, USA | 39.953964 | -75.163178
-dreid | 168 | David Reid | London, UK | 51.513016 | -0.118318
-poirier | 168 | Dan Poirier | Research Triangle Park, NC, USA | 35.898785 | -78.863693
-grahamd | 167 | Graham Phillip Dumpleton | Sydney, Australia | -33.867529 | 151.20693
-jfclere | 166 | Jean-Frederic Clere | Neuchatel (switzerland) | 46.993368 | 6.931976
-rederpj | 160 | Paul J. Reder | Research Triangle Park, NC, USA | 35.899341 | -78.86335
-fanf | 158 | Tony Finch | London | 51.513871 | -0.119691
-brianm | 146 | Brian McCallister | Menlo Park, CA | 37.45333 | -122.181755
-chrisd | 133 | Chris Darroch | British Columbia, Canada | 53.67068 | -127.667999
-sctemme | 121 | Sander Temme | San Francisco, CA | 37.785097 | -122.418991
-kawai | 120 | Hiroaki Kawai | Tokyo, Japan | 35.688533 | 139.689574
-jailletc36 | 118 | Christophe Jaillet | Reims, France | 49.258395 | 4.031929
-orlikowski | 115 | Victor J. Orlikowski | Durham, NC USA | 35.992452 | -78.899796
-dirkx | 115 | Dirk-Willem van Gulik | Italy | 35.778271|-78.641617
-soc-rian | 112 | Rian Hunter | Cambridge, Massachusetts | 42.373637 | -71.109551
-wsanchez | 104 | Wilfredo Sánchez | San Jose, CA, USA | 37.341776 | -121.896486
-gsmith | 69 | Gregg Lewis Smith | Dallas/Fort Worth Area | 32.724909 | -97.319856
-maxime | 68 | Maxime Petazzoni | Sunnyvale, CA | 37.369066 | -122.03624
-jsl | 66 | Jason Lingohr | Melbourne, Australia | -37.818463 | 144.961424
-issac | 63 | Issac Goldstand | Tel Aviv, Israel | 32.066283 | 34.777855
-pctony | 62 | Tony Stevesnon | Cambridge, UK | 52.205082 | 0.122169
-jsachs | 61 | John Sachs | San Francisco Bay Area | 37.781027 | -122.41536
-sascha | 57 | Sascha Schumann | Munich, Germany | 48.13585 | 11.575363
-rasmus | 55 | Rasmus Lerdorf | Research Triangle Park, NC | 35.899202 |-78.863838
-rooneg | 54 | Garrett Rooney | Boston, MA | 42.358544 | -71.060654
-pepper | 52 | Chris Pepper | Brooklyn, NY | 40.649387 | -73.949715
-druggeri | 51 | Daniel Ruggeri | Greater St. Louis Area | 38.62599 | -90.204041
-noirin | 50 | Noirin Plunkett | Munich, Germany | 48.136308 | 11.576049
-sameer | 48 | Sameer Parekh | Oakland, CA, USA | 37.804359 | -122.270386
-thommay | 43 | Thom May | London, UK | 51.50917 | -0.120957
-clar | 42 | Jean-Jacques Clar | Peoria, Illinois Area | 40.692093 | -89.588807
-jimw | 40 | Jim Winstead Jr. | Los Angeles, CA | 34.052659 | -118.243318
-jacekp | 34 | Jacek Prucia | Warsaw, Poland | 52.228641 | 21.011138
-paul | 31 | Paul Richards | UK | 51.511307 | -0.121064
-madhum | 29 | Madhusudan Mathihalli | Cupertino, CA | 37.323212 | -122.031723
-tdonovan | 26 | Thomas J. Donovan | Boston Massachusetts | 42.358037 | -71.059624
-gozer | 24 | Philippe Chiasson | Sherbrooke, Canada | 45.400861 | -71.882569
-soldis | 22 | Ilia Soldatenko | Tver, Russia | 56.85986 | 35.9039
-danielsh | 20 | Daniel Shahaf | Tel Aviv, Israel | 32.066283 | 34.778198
-mads | 20 | Mads Toftum | Copenhagem, Denmark | 55.675649 | 12.568252
-bhyde | 18 | Ben Hyde | Cambridge, Massachusetts | 42.373383 | -71.109709
-ask | 13 | Ask Bjorn Hansen | Los Angeles, CA | 34.050384 | -118.238039
-theory | 12 | David Wheeler | Portland, OR, USA | 45.523187 | -122.675507
-cholet | 10 | Eric Cholet | Paris, France | 48.857035 | 2.351364
-ridruejo | 7 | Daniel López Ridruejo | San Francisco, CA, USA | 37.774785 | -122.418648
-davidw | 6 | David Welton | Padova, Italy | 45.406405 | 11.877197
-fabien | 6 | Fabien Coelho | Paris, France | 48.855906 | 2.351707
-keith | 5 | Keith Wannamaker | Columbia, SC | 34.000874 | -81.035264
-berkes | 5 | Jem Berkes | Toronto, Canada | 43.652969 | -79.384675
-bayard | 4 | Henri Yandell | Seatle, Washington | 47.606626 | -122.332184
-davi | 4 |  Davi Arnaut | Curitiba, PR, Brazil | -25.428393 | -49.273896
-sterling | 3 | Sterling Hughes | San Francisco, CA | 37.776685 | -122.418991
-asteinmetz | 3 | Andreas Steinmetz | 50.775333 | 6.080192
-rian | 3 | Rian Hunter | San Francisco, CA | 37.775057 | -122.419335
-hartill | 2 | Rob Hartill |  Los Alamos, New Mexico | 35.888042 | -106.30685
-matts | 1 | Matt Sergeant | Toronto, Canada | 43.653963 | -79.383302
-max | 1 | Max Kellermann | 50.936796 | 6.959624
-cliff | 1 | Cliff Skolnick | San Francisco, CA, USA | 37.774514 | -122.419335
+wrowe | 4825 |  William A. Rowe, Jr. | Gurnee, IL, US | 42.3763 | -87.899605|-6
+jim | 3241 | Jim Jagielski | Forest Hill, Maryland, USA | 39.578736 | -76.378333|-5
+nd | 3072 | André L. Malo | Saarbrücken, Germany | 49.250776 | 6.998184|1
+trawick | 3008 | Jeff Trawick | Raleigh, NC, USA | 35.801108 | -78.638978|-5
+rbowen | 1780 | Rich Bowen | Lexington, KY | 38.067555 | -84.508424|-5
+sf | 1391 | Stefan Fritsch | Munich, Germany | 48.148221 | 11.574676|1
+rpluem | 1302 | Rüdiger Plüm | Ratingen, Germany | 51.306579 | 6.836822|1
+dgaudet | 1282 | Dean Gaudet | San Francisco, CA, USA | 37.781841 | -122.420021|-8
+minfrin | 1281 | Graham Leggett | London, England | 51.530106 | -0.121064|0
+rbb | 1239 | Ryan Bloom | Oakland, CA | 37.817378 | -122.271073|-8
+jerenkrantz | 1219 | Justin Erenkrantz | Irvine, California | 33.689781 | -117.794091|-8
+jorton | 1217 | Joe Orton | London, UK | 51.530106 | -0.123811|0
+joes | 1215 | Joe Schaefer | Lauderdale Lakes, Florida, USA | 26.166454 | -80.208448|-5
+humbedooh | 1197 | Daniel Gruno | Copenhagen, Denmark | 26.167995 | -80.208448|-5
+slive | 1080 | Joshua Slive | Montreal, Quebec, Canada | 45.525592 | -73.550935|-5
+coar | 1071 | Ken Coar | Research Triangle Park, North Carolina, USA | 35.902678 | -78.864697|-5
+dougm | 1025 | Doug MacEachern | San Francisco, CA, USA | 37.781027 | -122.420365|-8
+stoddard | 1015 | Bill Stoddard | Research Triangle Park, NC, USA | 35.902539 | -78.86401|-5
+rse | 936 | Ralf S. Engelschall | Munich, Germany | 48.145472 | 11.576736|1
+fielding | 904 | Roy T. Fielding | Irvine, California | 33.690067 | -117.795807|-8
+covener | 894 | Eric Covener | Research Triangle Park, NC, USA | 35.902678 | -78.864182|-5
+bnicholes | 894 | Brad Nicholes | Provo, Ut. USA | 40.246516 | -111.659653|-7
+martin | 853 | Martin Kraemer | Munich, Germany | 48.14616 | 11.587089|1
+pquerna | 776 | Paul Querna | San Francisco, CA, USA | 37.782655 | -122.420021|-8
+niq | 719 | Nick Kew | Tavistock, England | 50.553144 | -4.141873|0
+stas | 701 | Stas Bekman | Vancouver, Canada | 49.266684 | -123.113533|-8
+rjung | 691 | Rainer Jung | Bonn, Germany | 50.746449 | 7.100494|1
+brianb | 689 | Brian Behlendorf | San Francisco, CA, USA | 37.780484 | -122.419678|-8
+fuankg | 632 | Guenter Knauf | Germany | 48.146847 |11.578109|1
+ben | 498 | Ben Laurie | 51.520707 | -0.11615	|0
+jwoolley | 496 | Cliff Woolley | Charlottesville, VA | 38.034301 | -78.476425|-5
+yoshiki | 435 | Yoshiki Hayashi | Tokyo, Japan | 35.717528 | 139.695067|9
+brianp | 406 | Brian Pane | Seattle, WA, USA | 47.617273 | -122.332871|-8
+marc | 398 | Marc Slemko | Seattle, WA, USA | 47.616347 | -122.330811|-8
+kess | 389 | Astrid Malo | Saarbrücken, Germany | 49.251224 | 6.99887|1
+gstein | 376 | Greg Stein | Palo Alto, CA, USA | 37.467229 | -122.144837|-8
+pcs | 369 | Paul Sutton | Seattle, USA | 47.617273 | -122.329438|-8
+erikabele | 342 | Erik Abele | Aalen, Germany | 48.856583 | 10.099761|1
+gregames | 330 | Greg Ames | Raleigh-Durham, North Carolina | 35.80779 | -78.637605|-5
+nilgun | 320 | Nilgun Belma Buguner | Alanya | 36.565358 | 32.00209|2
+takashi | 319 | Takashi Sato | Tokyo, Japan | 35.714183 | 139.689574|9
+randy | 316 | Randy Terbush | Alta, WY, USA | 43.846413 | -111.034184|-7
+grisha | 309 | Gregory Trubetskoy | Washington D.C. | 38.90653 | -77.035553|-5
+colm | 300 | Colm MacCárthaigh | Dublin, Ireland | 53.365304 | -6.263795|0
+aaron | 297 | Aaron Bannert | San Francisco, CA, USA | 37.781027 | -122.418648|-8
+mjc | 292 | Mark J. Cox | Glasgow, England | 55.866065 | -4.24907|0
+bjh | 238 | Brian Havard | Melbourne, Australia | -37.805444 | 144.96417|10
+striker | 238 | Sander Striker | Utrecht, The Netherlands | 52.092164 | 5.114715|1
+mturk | 235 | Mladen Turk | Croatia | 45.81229 | 15.978187|1
+chuck | 229 | Chuck Murcko | Sedona, AZ, USA | 34.869877 | -111.760925|-7
+lars | 229 | Lars Eilebrecht | Munich, Germany | 48.137683 | 11.575363|1
+akosut | 229 | Alexei Kosut | Stanford, California | 37.424162 | -122.166107|-8
+noodl | 222 | Vincent Bray | Newcastle, UK | 54.97919 | -1.618531|0
+manoj | 210 | Manoj Kasichainula | San Francisco, CA, USA | 37.785097 | -122.419335|-8
+igalic | 206 | Igor Galić | Vienna | 48.209117 | 16.369232|1
+ianh | 205 | Ian Holsman | San Francisco, USA | 37.78374 | -122.418991|-8
+pgollucci | 192 | Philip M. Gollucci | Alexandira, VA | 38.806273 | -77.042366|-5
+gryzor | 189 | Vincent Deffontaines | France | 48.857487 | 2.352051|1
+nlehuen | 179 | Nicolas Lehuen | Paris, France | 48.857261 | 2.352737|1
+geoff | 176 | Geoffrey Young | Philadelphia, USA | 39.953964 | -75.163178|-5
+dreid | 168 | David Reid | London, UK | 51.513016 | -0.118318|0
+poirier | 168 | Dan Poirier | Research Triangle Park, NC, USA | 35.898785 | -78.863693|-5
+grahamd | 167 | Graham Phillip Dumpleton | Sydney, Australia | -33.867529 | 151.20693|10
+jfclere | 166 | Jean-Frederic Clere | Neuchatel (switzerland) | 46.993368 | 6.931976|1
+rederpj | 160 | Paul J. Reder | Research Triangle Park, NC, USA | 35.899341 | -78.86335|-5
+fanf | 158 | Tony Finch | London | 51.513871 | -0.119691|0
+brianm | 146 | Brian McCallister | Menlo Park, CA | 37.45333 | -122.181755|-8
+chrisd | 133 | Chris Darroch | British Columbia, Canada | 53.67068 | -127.667999|-8
+sctemme | 121 | Sander Temme | San Francisco, CA | 37.785097 | -122.418991|-8
+kawai | 120 | Hiroaki Kawai | Tokyo, Japan | 35.688533 | 139.689574|9
+jailletc36 | 118 | Christophe Jaillet | Reims, France | 49.258395 | 4.031929|1
+orlikowski | 115 | Victor J. Orlikowski | Durham, NC USA | 35.992452 | -78.899796|-5
+dirkx | 115 | Dirk-Willem van Gulik | Italy | 35.778271|-78.641617|-5
+soc-rian | 112 | Rian Hunter | Cambridge, Massachusetts | 42.373637 | -71.109551|-5
+wsanchez | 104 | Wilfredo Sánchez | San Jose, CA, USA | 37.341776 | -121.896486|-8
+gsmith | 69 | Gregg Lewis Smith | Dallas/Fort Worth Area | 32.724909 | -97.319856|-6
+maxime | 68 | Maxime Petazzoni | Sunnyvale, CA | 37.369066 | -122.03624|-8
+jsl | 66 | Jason Lingohr | Melbourne, Australia | -37.818463 | 144.961424|10
+issac | 63 | Issac Goldstand | Tel Aviv, Israel | 32.066283 | 34.777855|2
+pctony | 62 | Tony Stevesnon | Cambridge, UK | 52.205082 | 0.122169|0
+jsachs | 61 | John Sachs | San Francisco Bay Area | 37.781027 | -122.41536|-8
+sascha | 57 | Sascha Schumann | Munich, Germany | 48.13585 | 11.575363|1
+rasmus | 55 | Rasmus Lerdorf | Research Triangle Park, NC | 35.899202 |-78.863838|-5
+rooneg | 54 | Garrett Rooney | Boston, MA | 42.358544 | -71.060654|-5
+pepper | 52 | Chris Pepper | Brooklyn, NY | 40.649387 | -73.949715|-5
+druggeri | 51 | Daniel Ruggeri | Greater St. Louis Area | 38.62599 | -90.204041|-6
+noirin | 50 | Noirin Plunkett | Munich, Germany | 48.136308 | 11.576049|1
+sameer | 48 | Sameer Parekh | Oakland, CA, USA | 37.804359 | -122.270386|-8
+thommay | 43 | Thom May | London, UK | 51.50917 | -0.120957|0
+clar | 42 | Jean-Jacques Clar | Peoria, Illinois Area | 40.692093 | -89.588807|-6
+jimw | 40 | Jim Winstead Jr. | Los Angeles, CA | 34.052659 | -118.243318|-8
+jacekp | 34 | Jacek Prucia | Warsaw, Poland | 52.228641 | 21.011138|1
+paul | 31 | Paul Richards | UK | 51.511307 | -0.121064|0
+madhum | 29 | Madhusudan Mathihalli | Cupertino, CA | 37.323212 | -122.031723|-8
+tdonovan | 26 | Thomas J. Donovan | Boston Massachusetts | 42.358037 | -71.059624|-5
+gozer | 24 | Philippe Chiasson | Sherbrooke, Canada | 45.400861 | -71.882569|-5
+soldis | 22 | Ilia Soldatenko | Tver, Russia | 56.85986 | 35.9039|4
+danielsh | 20 | Daniel Shahaf | Tel Aviv, Israel | 32.066283 | 34.778198|2
+mads | 20 | Mads Toftum | Copenhagem, Denmark | 55.675649 | 12.568252|1
+bhyde | 18 | Ben Hyde | Cambridge, Massachusetts | 42.373383 | -71.109709|-5
+ask | 13 | Ask Bjorn Hansen | Los Angeles, CA | 34.050384 | -118.238039|-8
+theory | 12 | David Wheeler | Portland, OR, USA | 45.523187 | -122.675507|-8
+cholet | 10 | Eric Cholet | Paris, France | 48.857035 | 2.351364|1
+ridruejo | 7 | Daniel López Ridruejo | San Francisco, CA, USA | 37.774785 | -122.418648|-8
+davidw | 6 | David Welton | Padova, Italy | 45.406405 | 11.877197|1
+fabien | 6 | Fabien Coelho | Paris, France | 48.855906 | 2.351707|1
+keith | 5 | Keith Wannamaker | Columbia, SC | 34.000874 | -81.035264|-5
+berkes | 5 | Jem Berkes | Toronto, Canada | 43.652969 | -79.384675|-5
+bayard | 4 | Henri Yandell | Seatle, Washington | 47.606626 | -122.332184|-8
+davi | 4 |  Davi Arnaut | Curitiba, PR, Brazil | -25.428393 | -49.273896|-3
+sterling | 3 | Sterling Hughes | San Francisco, CA | 37.776685 | -122.418991|-8
+asteinmetz | 3 | Andreas Steinmetz | 50.775333 | 6.080192|1
+rian | 3 | Rian Hunter | San Francisco, CA | 37.775057 | -122.419335|-8
+hartill | 2 | Rob Hartill |  Los Alamos, New Mexico | 35.888042 | -106.30685|-7
+matts | 1 | Matt Sergeant | Toronto, Canada | 43.653963 | -79.383302|-5
+max | 1 | Max Kellermann | 50.936796 | 6.959624|1
+cliff | 1 | Cliff Skolnick | San Francisco, CA, USA | 37.774514 | -122.419335|-8

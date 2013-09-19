@@ -40,6 +40,7 @@ if __name__ == "__main__":
     
     print "--- Downloading Commits ---"
     commits = retriever.get_commits()
+    commits.sort(key=lambda x:x.date)
 
     print "--- Generating Output ---"
     OutputGenerator(software_name).generate_output(commits)    

@@ -18,7 +18,7 @@ class GithubRetriever(Retriever):
         data = self.github_service.get_info()
         commits = self.parse_github_data(data)
         self.update_locations(commits)
-        commits = self.link_commits_to_locations(commits, self.locations_retriever.get_locations())
+        commits = self.link_commits_to_locations(commits, self.locations_retriever.get_locations())        
 
         return commits
 
@@ -47,7 +47,8 @@ class GithubRetriever(Retriever):
             if (not committer in locations):
                 committer_address = self.github_service.get_address_for_user(committer)
                 lat, lng = self.googlemaps_service.get_coordinates_for_address(committer_address)
-                self.locations_retriever.add_location(committer, lat, lng)
+                timeoffset = self.googlemaps_service.get_timezone_from_coordinates(lat,lng)
+                self.locations_retriever.add_location(committer, lat, lng, timeoffset)
 
     def get_committers_from_commits(self, commits):
         authors = map(lambda x: x.author, commits)
