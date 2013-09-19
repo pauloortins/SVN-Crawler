@@ -27,6 +27,7 @@ class OutputGenerator(object):
                '"date": "' + str(commit.date.date()) + '", ' + \
                '"time": "' + commit.date.time().strftime('%H:%M:%S') + '", ' + \
                '"timeoffset": "' + str(commit.timeoffset) + '", ' + \
+               '"paths": ' + str(commit.changed_paths) + ', ' + \
                '"weekday": ' + str(commit.date.weekday()) + '}'
 
         json = json.replace('\n','').replace('\t','')

@@ -32,7 +32,11 @@ class SvnRetriever(Retriever):
             if hasattr(log, 'author'):
                 author = log.author
 
-            commits.append(Commit(author, date, commit_time))
+            changed_paths = []
+            for change in log.changed_paths:
+                changed_paths.append(change['path'])
+
+            commits.append(Commit(author, date, commit_time, changed_paths))
 
         commits.sort(key=lambda x:x.date)
         return commits

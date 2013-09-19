@@ -7,7 +7,7 @@ class SvnService(object):
 
     def get_info(self):
         client = pysvn.Client()    
-        data = client.log(self.repository_url)
+        data = client.log(self.repository_url, discover_changed_paths=True)
         return data
 
-        
+     

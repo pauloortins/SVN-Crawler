@@ -34,7 +34,7 @@ class GithubRetriever(Retriever):
                 date = commit['commit']['author']['date'].split('T')[0]
                 time = commit['commit']['author']['date'].split('T')[1].split('-')[0].replace('Z', '')
 
-                commits.append(Commit(author,date,time))
+                commits.append(Commit(author,date,time, []))
 
         commits.sort(key=lambda x:x.date)
         return commits
