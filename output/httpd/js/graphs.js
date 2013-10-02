@@ -289,8 +289,7 @@ Graphs.prototype.createFileTypeGraph = function() {
     return $('#file-type-graph').highcharts({
             chart: {
                 type: 'bar',
-                width: $("#fileType").width() - 30,
-                height: $("#fileType").height()
+                width: $("#fileType").width() - 30
             },
             exporting: {
                 enabled: false
