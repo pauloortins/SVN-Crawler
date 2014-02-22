@@ -8,4 +8,4 @@
       with_items:
         - python-pip
         - git
-        - python-svn
+        - python-svn   
