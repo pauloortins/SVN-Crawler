@@ -1,6 +1,6 @@
 import unittest
 import json
-from generate_commits_data import *
+from src import *
 from collections import namedtuple
 import os
 
