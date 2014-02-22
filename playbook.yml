@@ -1,0 +1,11 @@
+---
+- hosts: all
+  sudo: True
+  tasks:
+    - name: General | Install required packages.
+      action: apt pkg={{ item }} state=installed
+      tags: common
+      with_items:
+        - python-pip
+        - git
+        - python-svn
