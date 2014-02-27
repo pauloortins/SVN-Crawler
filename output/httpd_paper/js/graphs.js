@@ -148,11 +148,13 @@ Graphs.prototype.generateDataPerFileExtension = function(data) {
         for (var j = 0; j < commit.paths.length; j++) {
             var fileExtension = this.getFileExtension(commit.paths[j]);
 
-            if (extensions[fileExtension] == undefined) {
-                extensions[fileExtension] = 0;
-            } 
+            if (fileExtension != "NotSpecified") {
+                if (extensions[fileExtension] == undefined) {
+                    extensions[fileExtension] = 0;
+                } 
 
-            extensions[fileExtension] = extensions[fileExtension] + 1;
+                extensions[fileExtension] = extensions[fileExtension] + 1;
+            }
         };
     }
 
