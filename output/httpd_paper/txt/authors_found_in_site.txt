@@ -1,0 +1,63 @@
+Erik Abele
+Aaron Bannert	
+Brian Behlendorf
+Rich Bowen	
+Ken Coar	
+Eric Covener
+Davi Arnaut	
+Chris Darroch	
+Lars Eilebrecht
+Ralf S. Engelschall
+Justin Erenkrantz	
+Roy T. Fielding
+Tony Finch	
+Stefan Fritsch
+Daniel Gruno
+Rob Hartill
+Brian Havard
+Yoshiki Hayashi
+Ian Holsman
+Rian Hunter
+Ben Hyde	
+Jim Jagielski
+Rainer Jung	
+Manoj Kasichainula	
+Nick Kew	
+Alexei Kosut	
+Martin Kraemer
+Ben Laurie	
+Graham Leggett
+Rasmus Lerdorf
+Jason Lingohr
+Colm MacCárthaigh
+Doug MacEachern	
+André L. Malo
+Astrid Malo
+Madhusudan Mathihalli	
+Brian McCallister
+Thom May
+Chuck Murcko
+Brad Nicholes
+Victor J. Orlikowski	
+Sameer Parekh	
+Rüdiger Plüm
+Noirin Plunkett
+Dan Poirier
+Paul Querna	
+Paul J. Reder	
+David Reid
+Daniel López Ridruejo	
+William A. Rowe, Jr.
+Wilfredo Sánchez
+Takashi Sato
+Joe Schaefer
+Cliff Skolnick
+Marc Slemko
+Joshua Slive
+Greg Stein
+Bill Stoddard	
+Sander Striker
+Paul Sutton
+Randy Terbush
+Jeff Trawick
+Cliff Woolley
