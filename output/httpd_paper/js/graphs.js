@@ -187,6 +187,7 @@ Graphs.prototype.getFileExtension = function(path) {
 Graphs.prototype.createWeekdayGraph = function() {
 	return $('#weekday-graph').highcharts({
             chart: {width: $("#weekday").width() - 30, height: $("#weekday").height()},
+            colors: ["#f15c80", "#434348"],
             exporting: {
             	enabled: false
             },
@@ -220,10 +221,16 @@ Graphs.prototype.createWeekdayGraph = function() {
             },
             series: [{
                 name: 'Commit',
-                data: [0,0,0,0,0,0,0]
+                data: [0,0,0,0,0,0,0],
+                marker: {
+                   symbol: "circle"
+                }
             }, {
                 name: 'Email',
-                data: [0,0,0,0,0,0,0]
+                data: [0,0,0,0,0,0,0],
+                marker: {
+                   symbol: "triangle"
+                }
             }]
         });
 };
@@ -231,6 +238,7 @@ Graphs.prototype.createWeekdayGraph = function() {
 Graphs.prototype.createTimeOfTheDayGraph = function() {
 	return $('#timeoftheday-graph').highcharts({
             chart: {width: $("#timeoftheday").width() - 30, height: $("#timeoftheday").height() },
+            colors: ["#f15c80", "#434348"],
             exporting: {
             	enabled: false
             },
@@ -265,10 +273,16 @@ Graphs.prototype.createTimeOfTheDayGraph = function() {
             },
             series: [{
                 name: 'Commit',
-                data: [0,0,0,0,0,0,0,0,0,0,0,0]
+                data: [0,0,0,0,0,0,0],
+                marker: {
+                   symbol: "circle"
+                }
             }, {
                 name: 'Email',
-                data: [0,0,0,0,0,0,0,0,0,0,0,0]
+                data: [0,0,0,0,0,0,0],
+                marker: {
+                   symbol: "triangle"
+                }
             }]
         });
 };
@@ -276,6 +290,7 @@ Graphs.prototype.createTimeOfTheDayGraph = function() {
 Graphs.prototype.createTimeGraph = function() {
 	return $('#time-graph').highcharts({
             chart: {width: $("#time").width() - 30, height: $("#time").height() },
+            colors: ["#f15c80", "#434348"],
             exporting: {
             	enabled: false
             },
@@ -309,10 +324,16 @@ Graphs.prototype.createTimeGraph = function() {
             },
             series: [{
                 name: 'Commit',
-                data: []
+                data: [0,0,0,0,0,0,0],
+                marker: {
+                   symbol: "circle"
+                }
             }, {
                 name: 'Email',
-                data: []
+                data: [0,0,0,0,0,0,0],
+                marker: {
+                   symbol: "triangle"
+                }
             }]
         });
 };

@@ -44,14 +44,14 @@ html, body {
 
 .graph {
     width: 46%;
-    height: 45%;
+    height: 600px;
     float: left;
     margin: 10px;
     border: 1pt solid;
 }
 
 .graph-full {
-    width: 98%
+    width: 98%;
 }
 
 #commits h2 , #emails h2, #developers h2 {
